@@ -1,9 +1,11 @@
-package ruolan.com.lazyloadfragment
+package ruolan.com.lazyloadfragment.ui.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import ruolan.com.lazyloadfragment.R
+import ruolan.com.lazyloadfragment.ui.fragment.base.SearchLazyloadBaseFragment
 
 @Suppress("UNREACHABLE_CODE")
 /**
@@ -19,13 +21,9 @@ class ContentFragment : SearchLazyloadBaseFragment() {
         if (rootView == null) {
             rootView = inflater.inflate(R.layout.fragment_content, container, false)
         }
-        initView(rootView)
         return rootView
     }
 
-    fun initView(rootView: View?) {
-
-    }
 
     override fun onFragmentVisibleChange(isVisiable: Boolean) {
 

@@ -8,16 +8,71 @@
     android:orientation="vertical">
 
 
+    <RelativeLayout
+        android:id="@+id/re_title"
+        android:layout_width="match_parent"
+        android:layout_height="55dp">
+
+        <EditText
+            android:id="@+id/edit_text_search"
+            android:layout_width="match_parent"
+            android:layout_height="33dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="12dp"
+            android:layout_toLeftOf="@+id/tv_cancel"
+            android:background="@drawable/rect_eddtext_search"
+            android:hint="@string/find_search_hint"
+            android:imeOptions="actionSearch"
+            android:inputType="text"
+            android:paddingLeft="32dp"
+            android:textColorHint="#9b9b9b"
+            android:textSize="14sp"/>
+
+
+        <ImageView
+            android:layout_width="19dp"
+            android:layout_height="19dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="19dp"
+            android:src="@mipmap/follow_search"/>
+
+        <TextView
+            android:id="@+id/tv_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="14dp"
+            android:layout_marginRight="14dp"
+            android:text="@string/cancle"
+            android:textColor="#ad8748"
+            android:textSize="15sp"
+            />
+
+    </RelativeLayout>
+
+    <View
+        android:id="@+id/view_blank"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#ececec"/>
+
+
     <android.support.design.widget.TabLayout
         android:id="@+id/mTabLayout"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        app:tabIndicatorColor="@color/colorAccent"
-        app:tabSelectedTextColor="@color/colorPrimaryDark"
-        app:tabTextColor="@color/colorAccent"/>
+        app:tabIndicatorColor="#ad8748"
+        app:tabSelectedTextColor="#ad8748"
+        app:tabTextColor="#4a4a4a"/>
+
+    <View
+        android:id="@+id/view_blank1"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#efefef"/>
 
     <android.support.v4.view.ViewPager
-        android:background="@color/colorPrimaryDark"
         android:id="@+id/mViewPager"
         android:layout_width="match_parent"
         android:layout_height="0dp"

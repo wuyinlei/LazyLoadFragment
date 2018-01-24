@@ -1,4 +1,4 @@
-package ruolan.com.lazyloadfragment
+package ruolan.com.lazyloadfragment.ui.fragment.base
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
