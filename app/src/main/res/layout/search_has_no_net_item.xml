@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:id="@+id/re_has_no_net"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerHorizontal="true"
+                android:background="#f4f4f4"
+                android:visibility="gone">
+
+    <ImageView
+        android:id="@+id/iv_no_net"
+        android:layout_width="126dp"
+        android:layout_height="154dp"
+        android:layout_centerHorizontal="true"
+        />
+
+    <TextView
+        android:id="@+id/tv_failed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/iv_no_net"
+        android:layout_centerHorizontal="true"
+        android:text="网络连接失败"
+        android:textColor="#39393a"
+        android:textSize="15sp"
+        tools:ignore="HardcodedText"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_failed"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp"
+        android:text="点击屏幕，重新加载"
+        android:textColor="#9b9b9b"
+        android:textSize="13sp"
+        tools:ignore="HardcodedText"/>
+
+</RelativeLayout>

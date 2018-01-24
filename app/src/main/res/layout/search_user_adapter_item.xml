@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#fff"
+                android:orientation="vertical">
+
+    <View
+        android:id="@+id/view_blank"
+        android:layout_width="match_parent"
+        android:layout_height="8dp"
+        android:background="#f4f4f4"
+        android:visibility="gone"/>
+
+    <RelativeLayout
+        android:id="@+id/rl_search"
+        android:layout_width="match_parent"
+        android:layout_height="69dp"
+        android:layout_below="@+id/view_blank">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/iv_heading"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="12dp"/>
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="11dp"
+            android:layout_marginTop="14dp"
+            android:layout_toRightOf="@+id/iv_heading"
+            android:ellipsize="end"
+            android:maxWidth="145dp"
+            android:singleLine="true"
+            android:textColor="#000000"
+            android:textSize="15sp"/>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerview_certification"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_marginRight="91dp"
+            android:layout_marginTop="14dp"
+            android:layout_toRightOf="@id/tv_name"/>
+
+
+        <TextView
+            android:id="@+id/tv_where"
+            android:layout_width="wrap_content"
+            android:layout_height="18dp"
+            android:layout_alignLeft="@+id/tv_name"
+            android:layout_alignStart="@+id/tv_name"
+            android:layout_below="@+id/tv_name"
+            android:layout_marginTop="1dp"
+            android:ellipsize="end"
+            android:maxEms="12"
+            android:singleLine="true"
+            android:text="江苏吴江万丽酒店行政总厨"
+            android:textColor="#9b9b9b"
+            android:textSize="13sp"/>
+
+        <Button
+            android:id="@+id/bt_attention"
+            android:layout_width="69dp"
+            android:layout_height="25dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="12dp"
+            android:background="@mipmap/addfollow"
+            android:button="@null"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="11dp"
+            android:background="#efefef"/>
+    </RelativeLayout>
+</RelativeLayout>
