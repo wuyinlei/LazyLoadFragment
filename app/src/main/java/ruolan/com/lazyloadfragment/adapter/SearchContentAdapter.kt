@@ -10,6 +10,7 @@ import android.widget.TextView
 import com.bumptech.glide.Glide
 import ruolan.com.lazyloadfragment.R
 import ruolan.com.lazyloadfragment.data.model.Content
+import ruolan.com.lazyloadfragment.utils.StringFormatUtil
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -28,6 +29,15 @@ class SearchContentAdapter(private val mData: List<Content>) : RecyclerView.Adap
                 .inflate(R.layout.search_content_adapter_item, parent, false))
     }
 
+    var mkey: ArrayList<String> = arrayListOf()
+
+    init {
+        mkey.add("天涯")
+        mkey.add("土豆")
+        mkey.add("怕")
+    }
+
+
     @SuppressLint("SimpleDateFormat")
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
@@ -39,6 +49,21 @@ class SearchContentAdapter(private val mData: List<Content>) : RecyclerView.Adap
 
         val sdf = SimpleDateFormat("yyyy-MM--dd")
         holder.mContentTime.text = sdf.format(Date(content.addtime.toLong() * 1000L))
+
+
+        holder.mContentTitle.text = StringFormatUtil(
+                holder.itemView.context,
+                content.title,
+                mkey,
+                R.color.main_yellow)
+                .fillColor()?.result
+
+        holder.mContentName.text = StringFormatUtil(
+                holder.itemView.context,
+                content.stitle,
+                mkey,
+                R.color.main_yellow)
+                .fillColor()?.result
     }
 
     override fun getItemCount(): Int {
