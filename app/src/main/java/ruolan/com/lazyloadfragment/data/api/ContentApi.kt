@@ -13,7 +13,7 @@ import rx.Observable
 
 interface ContentApi{
 
-    @GET("user")
+    @GET("content")
     fun content(): Observable<BaseResp<List<Content>>>
 
 

@@ -1,10 +1,13 @@
 package ruolan.com.lazyloadfragment.ui.fragment
 
 import android.os.Bundle
+import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import kotlinx.android.synthetic.main.fragment_user.*
 import ruolan.com.lazyloadfragment.R
+import ruolan.com.lazyloadfragment.adapter.SearchUserAdapter
 import ruolan.com.lazyloadfragment.data.api.UserApi
 import ruolan.com.lazyloadfragment.data.model.BaseResp
 import ruolan.com.lazyloadfragment.data.model.User
@@ -36,7 +39,8 @@ class UserFragment : SearchLazyloadBaseFragment() {
         RetrofitFactory.instance.create(UserApi::class.java).user()
                 .execute(object : BaseSubscriber<BaseResp<List<User>>>() {
                     override fun onNext(t: BaseResp<List<User>>) {
-
+                        mRecyclerView.layoutManager = LinearLayoutManager(activity)
+                        mRecyclerView.adapter = SearchUserAdapter(t.data)
                     }
                 })
 

@@ -38,7 +38,7 @@ class SearchContentAdapter(private val mData: List<Content>) : RecyclerView.Adap
                 .into(holder.mContent)
 
         val sdf = SimpleDateFormat("yyyy-MM--dd")
-        holder.mContentTime.text = sdf.format(Date(content.addtime))
+        holder.mContentTime.text = sdf.format(Date(content.addtime.toLong() * 1000L))
     }
 
     override fun getItemCount(): Int {

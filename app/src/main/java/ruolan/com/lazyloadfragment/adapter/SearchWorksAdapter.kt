@@ -34,8 +34,8 @@ class SearchWorksAdapter(val mData: List<Works>) : RecyclerView.Adapter<SearchWo
                 .into(holder.mIvWorks)
 
         holder.mTvWorkTitle.text = work.food_name
-        holder.mTvWorkContent.text = work.accessories
-        holder.mTvWorkName.text = work.nick_name
+        holder.mTvWorkContent.text = work.ingredients
+        holder.mTvWorkName.text = work.accessories
         holder.mTvWorkCollect.text = work.likenum + "人收藏"
     }
 
