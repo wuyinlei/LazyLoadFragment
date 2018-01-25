@@ -14,7 +14,7 @@
         android:layout_height="55dp">
 
         <EditText
-            android:id="@+id/edit_text_search"
+            android:id="@+id/mEditSearch"
             android:layout_width="match_parent"
             android:layout_height="33dp"
             android:layout_centerVertical="true"
@@ -25,6 +25,7 @@
             android:imeOptions="actionSearch"
             android:inputType="text"
             android:paddingLeft="32dp"
+            android:textColor="#000000"
             android:textColorHint="#9b9b9b"
             android:textSize="14sp"/>
 

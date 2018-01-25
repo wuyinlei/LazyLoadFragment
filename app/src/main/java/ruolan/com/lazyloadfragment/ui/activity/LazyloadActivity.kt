@@ -6,6 +6,8 @@ import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v4.view.ViewPager
 import android.support.v7.app.AppCompatActivity
+import android.text.Editable
+import android.text.TextWatcher
 import android.widget.LinearLayout
 import kotlinx.android.synthetic.main.activity_lazy_load.*
 import net.lucode.hackware.magicindicator.ViewPagerHelper
@@ -19,11 +21,14 @@ import net.lucode.hackware.magicindicator.buildins.commonnavigator.titles.ColorT
 import net.lucode.hackware.magicindicator.buildins.commonnavigator.titles.badge.BadgePagerTitleView
 import ruolan.com.lazyloadfragment.R
 import ruolan.com.lazyloadfragment.adapter.FragmentVpAdapter
+import ruolan.com.lazyloadfragment.rx.event.KeyChangeEvent
+import ruolan.com.lazyloadfragment.rx.rxbus.RxBus
 import ruolan.com.lazyloadfragment.ui.fragment.ContentFragment
 import ruolan.com.lazyloadfragment.ui.fragment.SearchSynthesisFragment
 import ruolan.com.lazyloadfragment.ui.fragment.UserFragment
 import ruolan.com.lazyloadfragment.ui.fragment.WorksFragment
 
+@Suppress("DEPRECATION")
 /**
  * Created by wuyinlei on 2018/1/24.
  *
@@ -95,6 +100,11 @@ class LazyloadActivity : AppCompatActivity() {
 
 
         mViewPager.adapter = FragmentVpAdapter(supportFragmentManager, mFragments, mTitles)
+        //这个地方也是一个坑  如果需要搜索的达到要求 也就是当输入key关键字之后  我们当滑动到那个界面的时候  就要触发
+        // 他的请求网络的接口  那么就需要fragment初始化保存在viewpager的内存管理中
+        //当然这个我们是4个界面  所以要设置为3个  也就是当前所有的4个界面都要初始化出来
+        //这个初始化之后   要配合Fragment-->setUserVisibleHint的这个方法来进行数据请求  才能更好的用户体验
+        mViewPager.offscreenPageLimit = 3
         mViewPager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
             override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {
                 mMagicIndicatorSearch.onPageScrolled(position, positionOffset, positionOffsetPixels)
@@ -107,6 +117,29 @@ class LazyloadActivity : AppCompatActivity() {
             override fun onPageScrollStateChanged(state: Int) {
                 mMagicIndicatorSearch.onPageScrollStateChanged(state)
             }
+        })
+
+
+        mEditSearch.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(s: Editable?) {
+
+            }
+
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+
+                if (!s.toString().isEmpty()) {
+                    val keyEvent = KeyChangeEvent(s.toString(), true)
+                    RxBus.default?.post(keyEvent)
+                } else {
+                    val keyEvent = KeyChangeEvent("", false)
+                    RxBus.default?.post(keyEvent)
+                }
+            }
+
         })
 
 
